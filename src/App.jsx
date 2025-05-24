@@ -8,12 +8,13 @@ import Navbar from './component/Navbar'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [uid, setUid] = useState("")
 
   return (
     <>
  
-    <Login/>
-      <Product/>
+    <Login setUid={setUid} />
+      <Product uid={uid}/>
     </>
   )
 }

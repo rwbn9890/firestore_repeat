@@ -6,11 +6,10 @@ import { toast } from 'react-toastify'
 import Navbar from './Navbar'
 
 
-const Login = () => {
+const Login = ({setUid}) => {
 
 const [remember, setRemember] =useState(false)
   const [user, setUser] = useState({photo:"", name:"", email:""})
-
 
 
     const auth = getAuth(app)
@@ -43,9 +42,11 @@ const [remember, setRemember] =useState(false)
        onAuthStateChanged(auth, (user)=>{
         if(user)
         {
-          console.log(user)
+          // console.log(user)
            
           setUser({...user, photo:user.photoURL, name:user.displayName, email:user.email})
+
+          setUid(user.uid)
         }
        })
     },[auth])
